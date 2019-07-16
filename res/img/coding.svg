@@ -1,0 +1,7 @@
+<svg height='300px' width='300px' fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px"
+  y="0px">
+  <title>programming-ide</title>
+  <path
+    d="M90,15H10a5.006,5.006,0,0,0-5,5V85H95V20A5.006,5.006,0,0,0,90,15ZM10,19H90a1,1,0,0,1,1,1v9H9V20A1,1,0,0,1,10,19ZM9,81V33H91V81ZM27,43H13V39H27Zm-4,4H58v4H23ZM64,59H33V55H64ZM33,63H53v4H33Zm24,0H87v4H57ZM23,71H60v4H23Z">
+  </path>
+</svg>
