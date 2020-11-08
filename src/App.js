@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { createMuiTheme, MuiThemeProvider, responsiveFontSizes } from '@material-ui/core/styles'
 import './App.css';
 import Index from './pages/Index'
 import ReactGA from 'react-ga'
+import Scrollbar from 'smooth-scrollbar'
 
 let theme = createMuiTheme({
   palette: {
@@ -47,36 +48,43 @@ let theme = createMuiTheme({
 })
 theme = responsiveFontSizes(theme)
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-  componentDidMount() {
+const App = () => {
+  const containerRef = useRef(null)
+
+  useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual'
     }
-  }
-  componentDidCatch(err, info) {
-    ReactGA.exception({
-      description: info.componentStack,
-      fatal: true
-    })
-  }
-  render() {
-    return (
-      <MuiThemeProvider theme={theme}>
-        {/* <Fab style={{width: 70, height: 70, background: 'transparent', boxShadow: 'none', zIndex: 1001, right: 0, position: 'fixed'}}><Menu color='secondary'/></Fab> */}
-        <Router>
-          <div className="App" style={{maxWidth: 1920, margin: 'auto auto'}}>
-            <Switch>
-              <Route path="/" component={Index} />
-            </Switch>
-          </div>
-        </Router>
-      </MuiThemeProvider>
-    )
-  }
+    try {
+      // console.log(document.querySelector(".App"))
+      Scrollbar.init(document.querySelector("html"), {
+        damping: 0.09,
+        thumbMinSize: 0
+      })
+      // Scrollbar.initAll({
+      //   damping: 0.09,
+      //   thumbMinSize: 0
+      // })
+    } catch (err) {
+      ReactGA.exception({
+        description: err.stack,
+        fatal: true
+      })
+    }
+  }, [])
+
+  return (
+    <MuiThemeProvider theme={theme} id="main">
+      {/* <Fab style={{width: 70, height: 70, background: 'transparent', boxShadow: 'none', zIndex: 1001, right: 0, position: 'fixed'}}><Menu color='secondary'/></Fab> */}
+      <Router>
+        <div className="App" style={{maxWidth: 1920, margin: 'auto auto'}}>
+          <Switch>
+            <Route path="/" component={Index} />
+          </Switch>
+        </div>
+      </Router>
+    </MuiThemeProvider>
+  )
 }
 
 export default App;

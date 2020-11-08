@@ -28,7 +28,8 @@
     "react-scripts": "3.0.1",
     "react-scroll-parallax": "2.1.2",
     "react-tooltip": "3.10.0",
-    "react-vertical-timeline-component": "file:submodules/react-vertical-timeline"
+    "react-vertical-timeline-component": "file:submodules/react-vertical-timeline",
+    "smooth-scrollbar": "^8.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
