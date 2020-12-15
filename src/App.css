@@ -2,21 +2,38 @@
   height:100%;
 } */
 
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar:hover {
+  background: #444444aa;
+}
 body {
   user-select: none;
   background: #000;/*rgb(31, 31, 31);*/
   overflow-x: hidden;
+}
+body::-webkit-scrollbar-track:hover {
+  background: #444444aa;
+}
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 6px;
+  border: 3px solid transparent;
+}
+body::-webkit-scrollbar-thumb:hover {
+  border: 3px solid #6ad1cfbb;
 }
 
 .App {
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 .App-header {
   background-color: #282c34;
