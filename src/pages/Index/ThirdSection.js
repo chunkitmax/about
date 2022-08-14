@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Typography, Chip, Divider } from '@material-ui/core';
+import { Grid, Typography, Chip, Divider, Button } from '@material-ui/core';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import SkillBoard from '../../components/SkillBoard';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
@@ -7,6 +7,7 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import { withStyles } from '@material-ui/styles';
 import TrackVisibility from 'react-on-screen';
+import VideoModal from '../../components/VideoModal';
 
 const styles = () => ({
   timelineIcon: {
@@ -63,7 +64,9 @@ const styles = () => ({
 class ThirdSection extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      videoOpen_2016Comp: props.openComp2016,
+    }
   }
   render() {
     const { width, classes } = this.props
@@ -100,6 +103,7 @@ class ThirdSection extends Component {
               </Grid>
             </ParallaxBanner>
         </ParallaxProvider>
+        <VideoModal open={this.state.videoOpen_2016Comp} onClose={() => this.setState({ videoOpen_2016Comp: false })} url={'https://drive.google.com/file/d/1bqXMd-SDYyegPTSWv8SDGezDTa0wIQYj/preview'} />
         <Grid
           container
           direction="row"
@@ -122,7 +126,7 @@ class ThirdSection extends Component {
             style={{marginTop: 20, padding: 2}}
           >
             <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
-              <TrackVisibility partialVisibility once>
+              <TrackVisibility partialVisibility>
                 <SkillBoard
                   icon={<img src={`${process.env.PUBLIC_URL}/res/img/html.svg`} alt="Web"/>}
                   color="#2fb2d0"
@@ -130,18 +134,18 @@ class ThirdSection extends Component {
                   title="Web"
                   content={`Both front-end and back-end web development but prefer dealing with data on back-end.\n\nUsually use ReactJs for front-end and Node.js for back-end.`}
                   skills={[
-                    { name: 'HTML & CSS', level: 0.85, color: '#e34c26' },
+                    { name: 'HTML & CSS', level: 0.75, color: '#e34c26' },
                     { name: 'JavaScript (ES8)', level: 0.9, color: '#f1e05a' },
                     { name: 'Node.js', level: 0.9, color: '#689f63' },
-                    { name: 'ReactJs', level: 0.75, color: '#61dafb' },
-                    { name: 'TypeScript', level: 0.7, color: '#2b7489' },
-                    { name: 'PHP', level: 0.2, color: '#4F5D95', badge: 'old' }
+                    { name: 'React', level: 0.78, color: '#61dafb' },
+                    { name: 'TypeScript', level: 0.75, color: '#2b7489' },
+                    { name: 'PHP', level: 0.2, color: '#4F5D95' }
                   ]}
                 />
               </TrackVisibility>
             </Grid>
             <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
-              <TrackVisibility partialVisibility once>
+              <TrackVisibility partialVisibility>
                 <SkillBoard
                   icon={<img src={`${process.env.PUBLIC_URL}/res/img/MCU.svg`} alt="Embedded System / Robotics"/>}
                   color="rgb(185, 151, 30)"
@@ -149,14 +153,14 @@ class ThirdSection extends Component {
                   title="Embedded System / Robotics"
                   content={`Solid experience in building embedded software running on ARM Cortex-M0 and Cortex-M3 cores.\n\nHands-on experience in tuning PID controller for inverted pendulum system, implementing Fuzzy Logic PD Controller and applying SLAM for simple path planning on ROS`}
                   skills={[
-                    { name: 'C/C++', level: 0.85, color: '#f34b7d' },
-                    { name: 'Robotics Operating System (ROS)', level: 0.65, color: '#ddd' }
+                    { name: 'C/C++', level: 0.8, color: '#f34b7d' },
+                    { name: 'Robotics Operating System (ROS)', level: 0.6, color: '#ddd' }
                   ]}
                 />
               </TrackVisibility>
             </Grid>
             <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
-              <TrackVisibility partialVisibility once>
+              <TrackVisibility partialVisibility>
                 <SkillBoard
                   icon={<img src={`${process.env.PUBLIC_URL}/res/img/neural_net.svg`} alt="Machine Learning"/>}
                   color="rgb(22, 168, 126)"
@@ -164,16 +168,16 @@ class ThirdSection extends Component {
                   title="Machine Learning"
                   content="Keep track of state-of-the-art techniques and sometimes test my own ideas to solve problems."
                   skills={[
-                    { name: 'Python', level: 0.83, color: '#3572A5' },
-                    { name: 'Keras (Backend: TF)', level: 0.79, color: '#d00000' },
-                    { name: 'Tensorflow', level: 0.64, color: '#ff8f00' },
-                    { name: 'PyTorch', level: 0.54, color: '#e93f27' },
+                    { name: 'Python', level: 0.7, color: '#3572A5' },
+                    { name: 'Keras (Backend: TF)', level: 0.6, color: '#d00000' },
+                    { name: 'Tensorflow', level: 0.53, color: '#ff8f00' },
+                    { name: 'PyTorch', level: 0.44, color: '#e93f27' },
                   ]}
                 />
               </TrackVisibility>
             </Grid>
             <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
-              <TrackVisibility partialVisibility once>
+              <TrackVisibility partialVisibility>
                 <SkillBoard
                   icon={<img src={`${process.env.PUBLIC_URL}/res/img/android.svg`} alt="Android"/>}
                   color="rgb(175, 63, 212)"
@@ -181,14 +185,28 @@ class ThirdSection extends Component {
                   title="Android"
                   content="Android application integrates with Firebase and RESTful APIs from other servers."
                   skills={[
-                    { name: 'Java', level: 0.73, color: '#b07219' },
-                    { name: 'Kotlin', level: 0.45, color: '#F18E33', badge: 'new' }
+                    { name: 'Java', level: 0.7, color: '#b07219' },
+                    // { name: 'Kotlin', level: 0.3, color: '#F18E33', badge: 'new' }
                   ]}
                 />
                 </TrackVisibility>
             </Grid>
             <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
-              <TrackVisibility partialVisibility once>
+              <TrackVisibility partialVisibility>
+                <SkillBoard
+                  icon={<img src={`${process.env.PUBLIC_URL}/res/img/general.svg`} alt="Other"/>}
+                  color="#764848"
+                  boardWidth={isWidthUp('md', width)? 350 : '100%'}
+                  title="Other"
+                  content="Other programming languages"
+                  skills={[
+                    { name: 'Rust', level: 0.6, color: '#f05033' },
+                  ]}
+                />
+              </TrackVisibility>
+            </Grid>
+            <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
+              <TrackVisibility partialVisibility>
                 <SkillBoard
                   icon={<img src={`${process.env.PUBLIC_URL}/res/img/software.svg`} alt="Software Tool"/>}
                   color="#ff6d04"
@@ -204,7 +222,7 @@ class ThirdSection extends Component {
               </TrackVisibility>
             </Grid>
             <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
-              <TrackVisibility partialVisibility once>
+              <TrackVisibility partialVisibility>
                 <SkillBoard
                   icon={<img src={`${process.env.PUBLIC_URL}/res/img/data.svg`} alt="Database"/>}
                   color="#ec5453"
@@ -212,21 +230,21 @@ class ThirdSection extends Component {
                   title="Database"
                   content="Work experience on SQL and NoSQL"
                   skills={[
-                    { name: 'MongoDB', level: 0.8, color: '#13aa52' },
-                    { name: 'Oracle Database', level: 0.65, color: '#aa13a8' },
-                    { name: 'MySQL', level: 0.7, color: '#f8981d' },
+                    { name: 'MySQL', level: 0.73, color: '#f8981d' },
+                    { name: 'MongoDB', level: 0.64, color: '#13aa52' },
+                    { name: 'Oracle Database', level: 0.63, color: '#aa13a8' },
                   ]}
                 />
               </TrackVisibility>
             </Grid>
             <Grid item xs={isWidthUp('sm', width)? (isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 'auto' : 3): 4) : 6) : 12}>
-              <TrackVisibility partialVisibility once>
+              <TrackVisibility partialVisibility>
                 <SkillBoard
                   icon={<img src={`${process.env.PUBLIC_URL}/res/img/ic.svg`} alt="Hardware"/>}
                   color="#4054b2"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Hardware"
-                  content={`Hands-on experience in hardware development.\n(Soldering,Circuit Reading,\nSchematic Drawing,PCB Design,\nHardware Trouble Shooting)`}
+                  content={`Hands-on experience in hardware development.\n\n- Soldering\n- Circuit Reading\n- Schematic Drawing\n- PCB Design\n- Hardware Trouble Shooting`}
                 />
               </TrackVisibility>
             </Grid>
@@ -342,6 +360,7 @@ class ThirdSection extends Component {
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="ARM Cortex-M4 Core" />
             </VerticalTimelineElement>
             <VerticalTimelineElement
+              id='2016_comp'
               iconClassName={classes.timelineIconSpan}
               date="July 2016"
               iconStyle={{ background: '#ff9d49'}}
@@ -359,6 +378,7 @@ class ThirdSection extends Component {
               <Typography color="primary" variant="subtitle2">
                 Designed PCB board and programmed a two-wheeled self-balancing car which is able to use two inductors to sense magnetic field generated by the wire in the middle of the track in order to run on a track having crosses and turns
               </Typography>
+              <Button variant='outlined' style={{ color: 'cyan', border: '2px solid #33dba23b' }} onClick={() => this.setState({ videoOpen_2016Comp: true })}>Watch Video</Button>
               <Divider className={classes.divider} variant="fullWidth"/>
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="C/C++" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Control System Design" />
@@ -531,6 +551,46 @@ class ThirdSection extends Component {
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="PID Controller" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Embedded System Programming" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="ARM Cortex-M3 Core" />
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              iconClassName={classes.timelineIconSpan}
+              date="Apr 2019 ~ Jun 2022"
+              iconStyle={{ background: '#1abf5c'}}
+              icon={
+                <img
+                  src={`${process.env.PUBLIC_URL}/res/img/case.svg`}
+                  className={classes.timelineIcon}
+                  alt="work"
+                />
+              }
+              contentClassName={classes.timelineContent}
+            >
+              {/* <Typography color="primary" variant="h6">Joined</Typography> */}
+              <Typography color="primary" variant="h5" className={classes.organization}>SoarStack Tech Solutions Ltd.</Typography>
+              <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Freelance Software Engineer</Typography>
+              <Typography color="primary" variant="subtitle2" align="left">
+                <ul>
+                  <li>Engineered modern commercial platforms for companies with Node.js, React, MySQL and
+AWS cloud services</li>
+                  <li>Efficiently deployed and integrated software and wrote integration / deployment bash
+scripts, dockerfile and docker compose file</li>
+                  <li>Designed, built and maintained modules for company internal purchase system with Java,
+Apache MyFaces and Oracle Database</li>
+                </ul>
+              </Typography>
+              <Divider className={classes.divider} variant="fullWidth"/>
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Node.js" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="React" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Python" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="MySQL" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="MongoDB" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="C/C++" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Java" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Oracle Database" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Oracle WebLogic" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="MyFaces" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="AWS Cloud Services" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Docker" />
             </VerticalTimelineElement>
           </VerticalTimeline>
         </Grid>

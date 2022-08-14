@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
-import { Grid, Typography, Link } from '@material-ui/core'
+import { Grid, Typography, Link, Fab } from '@material-ui/core'
 import { withController } from 'react-scroll-parallax'
 import TrackVisibility from 'react-on-screen'
-import { withTheme, withStyles, lighten } from '@material-ui/core/styles'
+import { withTheme, withStyles } from '@material-ui/core/styles'
 import FirstSection from './FirstSection';
 import Cover from './Cover';
 import SecondSection from './SecondSection';
 import withWidth from '@material-ui/core/withWidth';
 import ThirdSection from './ThirdSection';
 import FourthSection from './FourthSection';
-import GitHubCalendar from 'react-github-calendar'
-import ReactTooltip from 'react-tooltip'
+// import GitHubCalendar from 'react-github-calendar'
+// import ReactTooltip from 'react-tooltip'
+import { KeyboardArrowUp } from '@material-ui/icons'
 
 const CoverHeight = 900
 
-const githubThemeColor = 'rgba(32, 132, 255, 0.6)'
+// const githubThemeColor = 'rgba(32, 132, 255, 0.6)'
 
 const styles = () => ({
   cover: {
@@ -43,11 +44,45 @@ const styles = () => ({
 class Index extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      fabAppear: false
+    }
+    // console.log(props.history)
+    // this.comp1026Ref = createRef()
+    this.openComp2016 = this.props.history.location.hash === '#2016_comp'
+    this.props.history.replace('/about')
   }
   componentWillMount() {
-    window.scrollTo(0, 0)
+    setImmediate(() => {
+      if (this.openComp2016) {
+        document.getElementById('2016_comp').scrollIntoView({ smooth: true, block: 'start' })
+      } else {
+        window.scrollTo(0, 0)
+      }
+    })
   }
+
+  componentDidUpdate() {
+    window.addEventListener('scroll', this.handleScroll.bind(this))
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('transitionend', this.handleScroll.bind(this));
+  }
+
+  handleScroll() {
+    if (this.scrollTimer) {
+      clearTimeout(this.scrollTimer)
+    }
+    this.scrollTimer = setTimeout(() => {
+      if (window.scrollY > window.innerHeight) {
+        this.setState({ fabAppear: true })
+      } else {
+        this.setState({ fabAppear: false })
+      }
+    }, 100)
+  }
+
   render() {
     const { classes } = this.props
     return (
@@ -92,7 +127,7 @@ class Index extends Component {
           item
           container
         >
-          <ThirdSection/>
+          <ThirdSection openComp2016={this.openComp2016} />
         </Grid>
 
         <Grid
@@ -102,7 +137,7 @@ class Index extends Component {
           <FourthSection/>
         </Grid>
 
-        <Grid
+        {/* <Grid
           item
           container
           direction="column"
@@ -134,7 +169,7 @@ class Index extends Component {
               <ReactTooltip delayShow={50} html />
             </GitHubCalendar>
           </Grid>
-        </Grid>
+        </Grid> */}
 
         <Grid
           item
@@ -146,21 +181,27 @@ class Index extends Component {
         >
           <Grid xs={12} item><Typography variant="h3" color="primary" style={{fontFamily: 'Poppins', marginBottom: 15}}>Contact</Typography></Grid>
           <Grid xs item>
-            <Link href="https://github.com/chunkitmax" color="primary" className={classes.linkButton}>
+            <Link href="https://github.com/chunkitmax" target='_blank' color="primary" className={classes.linkButton}>
               <img src={`${process.env.PUBLIC_URL}/res/img/github.svg`} alt="Github" width={48} height={48} style={{padding: 10}}/><br/>
               Petel__
             </Link>
           </Grid>
-          <Grid xs item>
+          {/* <Grid xs item>
             <Link href="https://www.facebook.com/chunkitmax" color="primary" className={classes.linkButton}>
               <img src={`${process.env.PUBLIC_URL}/res/img/facebook.svg`} alt="Facebook" width={48} height={48} style={{padding: 10}}/><br/>
               Peter Lau
             </Link>
-          </Grid>
+          </Grid> */}
           <Grid xs item>
-            <Link href="mailto:petelauck@gmail.com" color="primary" className={classes.linkButton}>
+            <Link href="mailto:petelauck@gmail.com" target='_blank' color="primary" className={classes.linkButton}>
               <img src={`${process.env.PUBLIC_URL}/res/img/gmail.svg`} alt="Gmail" width={48} height={48} style={{padding: 10}}/><br/>
               petelauck
+            </Link>
+          </Grid>
+          <Grid xs item>
+            <Link href="https://www.linkedin.com/in/chun-kit-lau-774099115" target='_blank' color="primary" className={classes.linkButton}>
+              <img src={`${process.env.PUBLIC_URL}/res/img/linkedin.svg`} alt="Gmail" width={48} height={48} style={{padding: 10}}/><br/>
+              Chun Kit Lau
             </Link>
           </Grid>
         </Grid>
@@ -169,8 +210,24 @@ class Index extends Component {
           item
           container
         >
-          <Typography variant="body2" style={{color: '#444444'}}>08-Nov-2020</Typography>
+          <Typography variant="body2" style={{color: '#444444'}}>14-Aug-2022</Typography>
         </Grid>
+
+        <Fab
+          color="primary"
+          aria-label="add"
+          style={{
+            position: 'fixed',
+            right: '10px', bottom: '10px',
+            zIndex: 9999,
+            color: 'black',
+            backgroundColor: '#3795e6f0',
+            display: window.scrollY < window.innerHeight? 'none': undefined
+          }}
+          onClick={() => window.scrollTo(0, 0)}
+        >
+          <KeyboardArrowUp />
+        </Fab>
 
       </Grid>
     )

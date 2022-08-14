@@ -59,9 +59,9 @@ class SecondSection extends Component {
             alignItems="center"
             className={`${classes.slidingBackground} ${classes.bringToTop}`}
             style={{
-              minHeight: isWidthUp('sm', width)? (isWidthUp('lg', width)? '50vh' : '30vh') : '40vh', 
-              // paddingTop: isWidthUp('sm', width)? (isWidthUp('lg', width)? '25vh' : '15vh') : '20vh', 
-              // paddingBottom: isWidthUp('sm', width)? (isWidthUp('lg', width)? '25vh' : '15vh') : '20vh', 
+              minHeight: isWidthUp('sm', width)? (isWidthUp('lg', width)? '50vh' : '30vh') : '40vh',
+              // paddingTop: isWidthUp('sm', width)? (isWidthUp('lg', width)? '25vh' : '15vh') : '20vh',
+              // paddingBottom: isWidthUp('sm', width)? (isWidthUp('lg', width)? '25vh' : '15vh') : '20vh',
               paddingTop: 'auto',
               paddingBottom: 'auto',
               backgroundImage: `url("${process.env.PUBLIC_URL}/res/img/background_small.jpg")`
@@ -101,7 +101,7 @@ class SecondSection extends Component {
                   xs
                   style={{marginTop: 10}}
                 >
-                  <Button variant="contained" size="large" color="primary" className={classes.bringToTop} href={`${process.env.PUBLIC_URL}/res/doc/LauChunKit_CV_20190721.pdf`} download target="_blank">
+                  <Button variant="contained" size="large" color="primary" className={classes.bringToTop} href={`${process.env.PUBLIC_URL}/res/doc/LauChunKit_CV_20220815.pdf`} download target="_blank">
                     <SaveAlt style={{marginRight: 10}}/>
                      Download CV
                   </Button>
@@ -133,7 +133,7 @@ class SecondSection extends Component {
                 >
                   <Typography variant={isWidthUp('md', width)? "h4" : "h5"} color="primary" align="left">
                     I am an ISTJ {new Date(new Date() - new Date('1995-11-25')).getFullYear() - 1970}-year-old "boy", <br />
-                    machine learning and robotics enthusiast...
+                    robotics enthusiast...
                   </Typography>
                 </Parallax>
               </Grid>
@@ -165,7 +165,7 @@ class SecondSection extends Component {
               style={{marginTop: '10vh'}}
             >
               <Grid item xs={12}>
-                <Typography variant="h3" color="primary" style={{fontFamily: 'Poppins'}}>My Hobby</Typography>
+                <Typography variant="h3" color="primary" style={{fontFamily: 'Poppins'}}>My Hobbies</Typography>
               </Grid>
               <Grid
                 item
@@ -180,7 +180,7 @@ class SecondSection extends Component {
                 }}
               >
                 <Grid item xs={isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 2 : 3): 4) : 6}>
-                  <TrackVisibility once>
+                  <TrackVisibility>
                     {({ isVisible }) => (
                       <div className={isVisible? 'bounceIn': ''}>
                         <img src={`${process.env.PUBLIC_URL}/res/img/mountain.svg`} width={80} height={80} alt="Hiking" />
@@ -192,7 +192,7 @@ class SecondSection extends Component {
                   </TrackVisibility>
                 </Grid>
                 <Grid item xs={isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 2 : 3): 4) : 6}>
-                  <TrackVisibility once>
+                  <TrackVisibility>
                     {({ isVisible }) => (
                       <div className={isVisible? 'bounceIn': ''}>
                         <img src={`${process.env.PUBLIC_URL}/res/img/cycling2.svg`} width={80} height={80} alt="Cycling" />
@@ -204,7 +204,7 @@ class SecondSection extends Component {
                   </TrackVisibility>
                 </Grid>
                 <Grid item xs={isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 2 : 3): 4) : 6}>
-                  <TrackVisibility once>
+                  <TrackVisibility>
                     {({ isVisible }) => (
                       <div className={isVisible? 'bounceIn': ''}>
                         <img src={`${process.env.PUBLIC_URL}/res/img/dumbbell.svg`} width={80} height={80} alt="Weight Training" />
@@ -216,7 +216,7 @@ class SecondSection extends Component {
                   </TrackVisibility>
                 </Grid>
                 <Grid item xs={isWidthUp('md', width)? (isWidthUp('lg', width)? (isWidthUp('xl', width)? 2 : 3): 4) : 6}>
-                  <TrackVisibility once>
+                  <TrackVisibility>
                     {({ isVisible }) => (
                       <div className={isVisible? 'bounceIn': ''}>
                         <img src={`${process.env.PUBLIC_URL}/res/img/coding.svg`} width={80} height={80} alt="Coding" />

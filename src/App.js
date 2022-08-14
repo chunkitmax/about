@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { createMuiTheme, MuiThemeProvider, responsiveFontSizes } from '@material-ui/core/styles'
 import './App.css';
 import Index from './pages/Index'
 import ReactGA from 'react-ga'
-import Scrollbar from 'smooth-scrollbar'
+// import Scrollbar from 'smooth-scrollbar'
 
 let theme = createMuiTheme({
   palette: {
@@ -49,18 +49,16 @@ let theme = createMuiTheme({
 theme = responsiveFontSizes(theme)
 
 const App = () => {
-  const containerRef = useRef(null)
-
   useEffect(() => {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual'
     }
     try {
       // console.log(document.querySelector(".App"))
-      Scrollbar.init(document.querySelector("html"), {
-        damping: 0.09,
-        thumbMinSize: 0
-      })
+      // Scrollbar.init(document.querySelector("html"), {
+      //   damping: 0.09,
+      //   thumbMinSize: 0
+      // })
       // Scrollbar.initAll({
       //   damping: 0.09,
       //   thumbMinSize: 0

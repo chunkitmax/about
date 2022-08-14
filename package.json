@@ -16,7 +16,7 @@
     "@types/helmet": "0.0.43",
     "@types/mongoose": "5.5.3",
     "@types/ws": "6.0.1",
-    "gh-pages": "^3.1.0",
+    "gh-pages": "^3.2.3",
     "react": "16.8.6",
     "react-blur": "0.6.0",
     "react-dom": "16.8.6",
@@ -28,8 +28,7 @@
     "react-scripts": "3.0.1",
     "react-scroll-parallax": "2.1.2",
     "react-tooltip": "3.10.0",
-    "react-vertical-timeline-component": "file:submodules/react-vertical-timeline",
-    "smooth-scrollbar": "^8.5.3"
+    "react-vertical-timeline-component": "file:submodules/react-vertical-timeline"
   },
   "scripts": {
     "start": "react-scripts start",
