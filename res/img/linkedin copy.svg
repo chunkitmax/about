@@ -1,0 +1,1209 @@
+<svg id="vector-layer" preserveAspectRatio="none" width="2560px" height="1340px" viewBox="0 0 2560 1340"><filter id="grippie-shadow" width="100" height="100"><feGaussianBlur id="grippie-fe-blur" in="SourceAlpha" result="blur-out" stdDeviation="0.0190024"></feGaussianBlur><feOffset id="grippie-fe-offset" in="blur-out" result="the-shadow" dx="0.0190024" dy="0.0190024"></feOffset><feBlend in="SourceGraphic" in2="the-shadow" mode="normal"></feBlend></filter><g id="vector-canvas" transform="matrix(52.625, 0, 0, 52.625, 20, 20)" data-outlines="below"><rect id="background-rect" x="-1000000" y="-1000000" width="2000000" height="2000000"></rect><g id="background-outlines"><rect height="24" y="0" x="0" width="24"></rect></g><g id="workspaces"><rect id="whitespace" x="-1000000" y="-1000000" width="2000000" height="2000000"></rect><g data-bx-workspace="master" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" width="24" height="24" viewBox="0 0 24 24"><defs></defs><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" style="fill: rgb(255, 255, 255);"></path></g></g><g id="foreground-outlines"><rect height="24" y="0" x="0" width="24"></rect></g><g id="huds"><g id="outline-hud" enabled="" context="transform">
+  <style>
+    #outline-hud [uid="outline"] {
+      fill: none;
+      stroke: rgb(245, 92, 54);
+      stroke-width: 2;
+      pointer-events: none;
+      vector-effect: non-scaling-stroke;
+    }
+  </style>
+
+  <path uid="outline" transform="matrix(1, 0, 0, 1, 2.220446049250313e-16, 0)"></path>
+</g><g id="manual-guides-hud">
+  <style>
+    #manual-guides-hud .repr {
+      color: red;
+      pointer-events: none;
+    }
+    #manual-guides-hud .repr[data-snapping="true"] {
+      color: blue;
+    }
+
+    #manual-guides-hud .repr .outer-line {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 10;
+      vector-effect: non-scaling-stroke;
+      opacity: 0;
+    }
+    #manual-guides-hud .repr[data-selected] .outer-line {
+      opacity: 0.1;
+      pointer-events: all;
+    }
+
+    #manual-guides-hud .repr .inner-line {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #manual-guides-hud .repr .grippie {
+      stroke: currentColor;
+      stroke-width: 1px;
+      fill: white;
+      pointer-events: all;
+      vector-effect: non-scaling-stroke;
+    }
+    #manual-guides-hud .repr[data-selected] .grippie {
+      fill: currentColor;
+    }
+  </style>
+
+  <g uid="reprs"></g>
+</g><g id="smart-guides-hud">
+  <style>
+    #smart-guides-hud .repr {
+      fill: none;
+      stroke: blue;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  </style>
+
+  <g uid="reprs"></g>
+</g><g id="grid-hud" tabindex="-1">
+  <style>
+    /**
+     * Grid lines
+     */
+
+    #grid-hud .line {
+      fill: none;
+      stroke: green;
+      stroke-width: 1px;
+      stroke-opacity: 0.2;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+
+    /**
+     * Grippies
+     */
+
+    #grid-hud .grippie {
+      stroke: green;
+      stroke-width: 1px;
+      fill: white;
+      pointer-events: all;
+      vector-effect: non-scaling-stroke;
+    }
+    #grid-hud[selected] .grippie {
+      fill: green;
+    }
+
+    /**
+     * Cell rect
+     */
+
+    #grid-hud [uid="cell-rect"] {
+      display: none;
+      fill: green;
+      fill-opacity: 0.05;
+      stroke: green;
+      stroke-width: 1px;
+      stroke-opacity: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    #grid-hud[selected] [uid="cell-rect"] {
+      display: initial;
+    }
+  </style>
+
+  <g uid="main">
+    <g uid="lines">
+      <g uid="horizontal-lines" class="lines"></g>
+      <g uid="vertical-lines" class="lines"></g>
+    </g>
+
+    <rect uid="cell-rect"></rect>
+
+    <g uid="grippies">
+      <circle uid="origin-grippie" class="grippie" r="10" cx="0" cy="0"></circle>
+      <rect uid="resize-grippie" class="grippie" width="10" height="10" x="0" y="0"></rect>
+    </g>
+  </g>
+</g><g id="rect-hud">
+  <style>
+    #rect-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie" data-corner="1"></circle>
+      <circle class="grippie" data-corner="2"></circle>
+      <circle class="grippie" data-corner="3"></circle>
+      <circle class="grippie" data-corner="4"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="circle-hud">
+  <style>
+    #circle-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie" fill="none"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="ellipse-hud">
+  <style>
+    #ellipse-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie" data-axis="rx" fill="none"></circle>
+      <circle class="grippie" data-axis="ry" fill="none"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="frame-hud">
+  <style>
+    #frame-hud .grippie {
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #frame-hud .r-grippie {
+      fill: #73BA09;
+    }
+    #frame-hud .thickness-grippie {
+      fill: #73BA09;
+    }
+    #frame-hud .size-grippie {
+      fill: #C3C303;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie r-grippie" data-corner="1"></circle>
+      <circle class="grippie r-grippie" data-corner="2"></circle>
+      <circle class="grippie r-grippie" data-corner="3"></circle>
+      <circle class="grippie r-grippie" data-corner="4"></circle>
+      <circle class="grippie thickness-grippie" data-orient="x"></circle>
+      <circle class="grippie thickness-grippie" data-orient="y"></circle>
+      <circle class="grippie size-grippie" data-side="1"></circle>
+      <circle class="grippie size-grippie" data-side="2"></circle>
+      <circle class="grippie size-grippie" data-side="3"></circle>
+      <circle class="grippie size-grippie" data-side="4"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="ring-hud">
+  <style>
+    #ring-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie" data-axis="r1x"></circle>
+      <circle class="grippie" data-axis="r1y"></circle>
+      <circle class="grippie" data-axis="r2x"></circle>
+      <circle class="grippie" data-axis="r2y"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="pie-hud">
+  <style>
+    #pie-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #pie-hud .start-angle-grippie,
+    #pie-hud .end-angle-grippie {
+      fill: #C3C303;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie r-grippie r1-grippie"></circle>
+      <circle class="grippie r-grippie r2-grippie"></circle>
+      <circle class="grippie angle-grippie start-angle-grippie"></circle>
+      <circle class="grippie angle-grippie end-angle-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="crescent-hud">
+  <style>
+    #crescent-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie arch-grippie"></circle>
+      <circle class="grippie hollow-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="triangle-hud">
+  <style>
+    #triangle-hud .grippie {
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #triangle-hud .shift-grippie {
+      fill: #C3C303;
+    }
+    #triangle-hud .corner-grippie {
+      fill: #73BA09;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie shift-grippie"></circle>
+      <circle class="grippie corner-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="n-gon-hud">
+  <style>
+    #n-gon-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #n-gon-hud .grippie.r-grippie {
+      fill: red;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie arms-grippie"></circle>
+      <circle class="grippie corner-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="star-hud">
+  <style>
+    #star-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie arms-grippie"></circle>
+      <circle class="grippie depth-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="cog-hud">
+  <style>
+    #cog-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #cog-hud .splay-grippie {
+      fill: #C3C303;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie teeth-grippie"></circle>
+      <circle class="grippie splay-grippie"></circle>
+      <circle class="grippie r-grippie r1-grippie"></circle>
+      <circle class="grippie r-grippie r2-grippie"></circle>
+      <circle class="grippie r-grippie r3-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="arrow-hud">
+  <style>
+    #arrow-hud .grippie {
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #arrow-hud .start-grippie,
+    #arrow-hud .end-grippie {
+      fill: #C3C303;
+    }
+    #arrow-hud .base-thickness-grippie,
+    #arrow-hud .head-size-grippie,
+    #arrow-hud .head-inset-grippie {
+      fill: #73BA09;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie start-grippie"></circle>
+      <circle class="grippie end-grippie"></circle>
+      <circle class="grippie base-thickness-grippie"></circle>
+      <circle class="grippie head-size-grippie"></circle>
+      <circle class="grippie head-inset-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="cross-hud">
+  <style>
+    #cross-hud .grippie {
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #cross-hud .shift-grippie {
+      fill: #C3C303;
+    }
+    #cross-hud .arms-grippie {
+      fill: #73BA09;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie shift-grippie"></circle>
+      <circle class="grippie arms-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="spiral-hud">
+  <style>
+    #spiral-hud .grippie {
+      fill: #73BA09;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #spiral-hud .start-angle-grippie,
+    #spiral-hud .end-angle-grippie {
+      fill: #C3C303;
+    }
+    #spiral-hud .r1-grippie,
+    #spiral-hud .r2-grippie {
+      fill: #73BA09;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <circle class="grippie start-angle-grippie"></circle>
+      <circle class="grippie end-angle-grippie"></circle>
+      <circle class="grippie r1-grippie"></circle>
+      <circle class="grippie r2-grippie"></circle>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="spline-hud">
+  <style>
+    #spline-hud [uid="grippies"] {
+      cursor: default;
+    }
+    #spline-hud [uid="grippies"]:focus {
+      outline: none;
+    }
+
+    /**
+     * Primary node grippies
+     */
+
+    #spline-hud .primary-node-grippie .outer-circle {
+      fill: white;
+      stroke: #4d2782;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+    #spline-hud .primary-node-grippie[data-selected] .outer-circle {
+      fill: #bc9aec;
+    }
+    #spline-hud #grippies:focus .primary-node-grippie[data-selected] .outer-circle {
+      fill: #a370ea;
+    }
+    #spline-hud[mode^="draw-"]   .primary-node-grippie[data-position="mid"],
+    #spline-hud[mode$="-basis"]  .primary-node-grippie:not([data-subpath-type="basis"]),
+    #spline-hud[mode$="-rom"]    .primary-node-grippie:not([data-subpath-type="rom"]),
+    #spline-hud[mode$="-levien"] .primary-node-grippie:not([data-subpath-type="levien"]) {
+      display: none;
+    }
+
+    #spline-hud .primary-node-grippie .inner-circle {
+      pointer-events: none;
+      fill: #4d2782;
+    }
+
+    /**
+     * Secondary node grippies
+     */
+
+    #spline-hud .secondary-node-grippie {
+      fill: white;
+      stroke: #ef6c6c;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    #spline-hud[mode^="draw-"]   .secondary-node-grippie,
+    #spline-hud[mode$="-basis"]  .secondary-node-grippie:not([data-subpath-type="basis"]),
+    #spline-hud[mode$="-rom"]    .secondary-node-grippie:not([data-subpath-type="rom"]),
+    #spline-hud[mode$="-levien"] .secondary-node-grippie:not([data-subpath-type="levien"]) {
+      display: none;
+    }
+
+    /**
+     * Helper lines
+     */
+
+    #spline-hud .helper-line {
+      fill: none;
+      stroke: red;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+    #spline-hud[mode^="draw-freehand"] .helper-line,
+    #spline-hud[mode$="-rom"] .helper-line {
+      display: none;;
+    }
+
+    /**
+     * Curve grippies
+     */
+
+    #spline-hud[mode^="draw"] .curve-grippie {
+      display: none;
+    }
+    #spline-hud .curve-grippie path {
+      fill: none;
+      stroke: blue;
+      stroke-width: 10px;
+      vector-effect: non-scaling-stroke;
+      opacity: 0;
+    }
+    #spline-hud .curve-grippie path:hover {
+      opacity: 0.2;
+    }
+  </style>
+
+  <g uid="grippies" tabindex="-1">
+    <g uid="helper-lines"></g>
+    <g uid="curve-grippies"></g>
+    <g uid="primary-node-grippies"></g>
+    <g uid="secondary-node-grippies"></g>
+  </g>
+</g><g id="line-seg-hud">
+  <style>
+    #line-seg-hud [uid="outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+  </style>
+
+  <line uid="outline" class="outline" x1="0" y1="0" x2="0" y2="0">
+</line></g><g id="quad-bezier-seg-hud">
+  <style>
+    #quad-bezier-seg-hud [uid="control-line-1"],
+    #quad-bezier-seg-hud [uid="control-line-2"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    #quad-bezier-seg-hud [uid="control-point-grippie"] {
+      fill: red;
+      stroke: none;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    #quad-bezier-seg-hud [uid="outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+  </style>
+
+  <g uid="container">
+    <path uid="outline" d="M 0 0 C 0 0 0 0 0 0"></path>
+
+    <line uid="control-line-1"></line>
+    <line uid="control-line-2"></line>
+
+    <circle uid="control-point-grippie"></circle>
+  </g>
+</g><g id="cubic-bezier-seg-hud">
+  <style>
+    #cubic-bezier-seg-hud [uid="control-line-1"],
+    #cubic-bezier-seg-hud [uid="control-line-2"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    #cubic-bezier-seg-hud [uid="control-point-1-grippie"],
+    #cubic-bezier-seg-hud [uid="control-point-2-grippie"] {
+      fill: red;
+      stroke: none;
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    #cubic-bezier-seg-hud [uid="outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+  </style>
+
+  <g uid="container">
+    <path uid="outline" d="M 0 0 C 0 0 0 0 0 0"></path>
+
+    <line uid="control-line-1"></line>
+    <line uid="control-line-2"></line>
+
+    <circle uid="control-point-1-grippie"></circle>
+    <circle uid="control-point-2-grippie"></circle>
+  </g>
+</g><g id="arc-seg-hud">
+  <style>
+    #arc-seg-hud [uid="circle-outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    #arc-seg-hud [uid="arc-outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+  </style>
+
+  <g uid="container">
+    <circle uid="circle-outline" r="0"></circle>
+    <path uid="arc-outline" d="M 0 0 A 0 0 0 0 0 0 0"></path>
+  </g>
+</g><g id="rom-seg-hud">
+  <style>
+    #rom-seg-hud [uid="outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+  </style>
+
+  <path uid="outline"></path>
+</g><g id="basis-seg-hud">
+  <style>
+    #basis-seg-hud [uid="outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+
+    #basis-seg-hud [uid="control-line"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+  </style>
+
+  <polyline uid="control-line"></polyline>
+  <path uid="outline"></path>
+</g><g id="freehand-hud">
+  <style>
+    #freehand-hud [uid="outline"] {
+      fill: none;
+      stroke: red;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+    }
+  </style>
+
+  <polyline uid="outline"></polyline>
+</g><g id="text-hud" tabindex="-1">
+  <style>
+    /**
+     * Overlays
+     */
+
+    #text-hud [uid="caret-line"] {
+      stroke-width: 3;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+      stroke: gray;
+    }
+    #text-hud[inputmode] [uid="caret-line"] {
+      stroke: blue;
+    }
+
+    #text-hud [uid="selection-rects"] rect {
+      fill: rgba(179, 179, 179, 0.3);
+      pointer-events: none;
+    }
+    #text-hud[inputmode] [uid="selection-rects"] rect {
+      fill: var(--selection-background-color);
+    }
+
+    /**
+     * HTML input
+     */
+
+    #text-hud [uid="html-input-object"] {
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      background: white;
+      pointer-events: none;
+    }
+    #text-hud[debug] [uid="html-input-object"] {
+      width: 150px;
+      height: 50px;
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #text-hud [uid="html-input-object"] * {
+      /* Needed for correct positioning of IME dialog */
+      font-size: 0.01px !important;
+    }
+    #text-hud[debug] [uid="html-input-object"] * {
+      font-size: 10px !important;
+    }
+
+    #text-hud [uid="html-input"] {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      white-space: pre;
+    }
+    #text-hud[inputmode] [uid="html-input"] {
+      /* Make text editable and selectable */
+      -webkit-user-modify: read-write-plaintext-only;
+      -webkit-user-select: text;
+    }
+
+    #text-hud [uid="html-input"] *:not(span):not(a) {
+      display: none;
+    }
+  </style>
+
+  <g uid="overlays">
+    <line uid="caret-line"></line>
+    <g uid="selection-rects"></g>
+  </g>
+
+  <foreignObject uid="html-input-object" width="200" height="16">
+    <p uid="html-input" tabindex="0"></p>
+  </foreignObject>
+</g><g id="char-hud">
+  <style>
+    #char-hud [uid="grippies"] {
+      cursor: default;
+      outline: none;
+    }
+
+    #char-hud .node-grippie .outer-circle {
+      fill: white;
+      stroke: #4d2782;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+    }
+    #char-hud .node-grippie[data-selected] .outer-circle {
+      fill: #dabfff;
+    }
+
+    #char-hud .node-grippie .inner-circle {
+      display: none;
+      fill: #4d2782;
+    }
+    #char-hud .node-grippie[data-adjusted] .inner-circle {
+      display: block;
+    }
+  </style>
+
+  <g uid="grippies" tabindex="-1">
+    <g uid="node-grippies"></g>
+  </g>
+</g><g id="linear-gradient-hud" tabindex="-1">
+  <style>
+    #linear-gradient-hud .subhud:focus {
+      outline: none;
+    }
+
+    #linear-gradient-hud .slider {
+      stroke: white;
+      stroke-width: 7;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      outline: none;
+    }
+
+    #linear-gradient-hud .slider-shadow {
+      stroke: rgba(0, 0, 0, 0.3);
+      stroke-width: 10;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+      outline: none;
+    }
+
+    #linear-gradient-hud .stop-grippie {
+      fill: black;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #linear-gradient-hud .stop-grippie[data-selected] {
+      stroke: rgb(186, 186, 186); /* gray */
+    }
+    #linear-gradient-hud .subhud:focus .stop-grippie[data-selected] {
+      stroke: rgb(147, 210, 255); /* blue */
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud" tabindex="0">
+      <line class="slider-shadow"></line>
+      <line class="slider"></line>
+      <g class="stop-grippies"></g>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="radial-gradient-hud" tabindex="-1">
+  <style>
+    #radial-gradient-hud .subhud:focus {
+      outline: none;
+    }
+
+    #radial-gradient-hud .slider {
+      stroke: white;
+      stroke-width: 7;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      outline: none;
+    }
+
+    #radial-gradient-hud .slider-shadow {
+      stroke: rgba(0, 0, 0, 0.3);
+      stroke-width: 10;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      pointer-events: none;
+      outline: none;
+    }
+
+    #radial-gradient-hud .stop-grippie {
+      fill: black;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+    #radial-gradient-hud .stop-grippie[data-selected] {
+      stroke: rgb(186, 186, 186); /* gray */
+    }
+    #radial-gradient-hud .subhud:focus .stop-grippie[data-selected] {
+      stroke: rgb(147, 210, 255); /* blue */
+    }
+
+    #radial-gradient-hud .r2-outline {
+      fill: none;
+      stroke: rgb(46, 102, 249);
+      stroke-width: 1.5;
+      stroke-dasharray: 5, 5;
+      stroke-linecap: round;
+      vector-effect: non-scaling-stroke;
+      outline: none;
+      pointer-events: none;
+    }
+
+    #radial-gradient-hud .r2-grippie {
+      fill: rgb(46, 102, 249);
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud" tabindex="0">
+      <line class="r2-outline"></line>
+      <line class="slider-shadow"></line>
+      <line class="slider"></line>
+      <circle class="r2-grippie grippie"></circle>
+      <g class="stop-grippies"></g>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="pattern-hud">
+  <style>
+    #pattern-hud .outline {
+      fill: rgba(0, 0, 0, 0.07);
+      stroke: rgb(46, 102, 249);
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+
+    #pattern-hud .grippie {
+      fill: #E40DD6;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <path class="outline"></path>
+      <circle class="grippie rotate-grippie"></circle>
+      <rect class="grippie scale-grippie"></rect>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="blob-hud">
+  <style>
+    #blob-hud [uid="ellipse"] {
+      fill: rgba(0, 0, 0, 0.2);
+      stroke: rgba(255, 255, 255, 0.75);
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+      pointer-events: none;
+      vector-effect: non-scaling-stroke;
+    }
+    #blob-hud[data-mode="erase"] [uid="ellipse"] {
+      fill: rgba(255, 255, 255, 0.5);
+      stroke: rgba(0, 0, 0, 0.3);
+    }
+
+    #blob-hud [uid="cross"] {
+      display: none;
+      pointer-events: none;
+      fill: rgba(0, 0, 0, 0.7);
+    }
+    #blob-hud[data-mode="erase"] [uid="cross"] {
+      display: initial;
+    }
+  </style>
+
+  <ellipse uid="ellipse"></ellipse>
+  <path uid="cross" d="M 3.25 0 H 4.75 V 3.25 H 8 V 4.75 H 4.75 V 8 H 3.25 V 4.75 H 0 V 3.25 H 3.25 Z"></path>
+</g><g id="view-hud">
+  <style>
+    #view-hud .grippie[data-position="center"] {
+      fill: rgba(0, 0, 0, 0);
+      shape-rendering: crispEdges;
+    }
+    #view-hud .grippie[data-position="center"] {
+      cursor: -webkit-grab;
+    }
+    #view-hud .grippie[data-position="center"]:active {
+      cursor: -webkit-grabbing;
+    }
+
+    #view-hud .grippie[data-position="left"],
+    #view-hud .grippie[data-position="right"],
+    #view-hud .grippie[data-position="top"],
+    #view-hud .grippie[data-position="bottom"] {
+      stroke: red;
+      vector-effect: non-scaling-stroke;
+      stroke-width: 8;
+      opacity: 0;
+    }
+
+    #view-hud .grippie[data-position="top-left"] rect,
+    #view-hud .grippie[data-position="top-right"] rect,
+    #view-hud .grippie[data-position="bottom-left"] rect,
+    #view-hud .grippie[data-position="bottom-right"] rect {
+      fill: transparent;
+    }
+
+    #view-hud .grippie[data-position="top-left"] path,
+    #view-hud .grippie[data-position="top-right"] path,
+    #view-hud .grippie[data-position="bottom-left"] path,
+    #view-hud .grippie[data-position="bottom-right"] path {
+      fill: white;
+      stroke: rgb(88, 88, 88);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    #view-hud .subhud[data-selected] .grippie[data-position="top-left"] path,
+    #view-hud .subhud[data-selected] .grippie[data-position="top-right"] path,
+    #view-hud .subhud[data-selected] .grippie[data-position="bottom-left"] path,
+    #view-hud .subhud[data-selected] .grippie[data-position="bottom-right"] path {
+      fill: rgb(176, 214, 255);
+      stroke: rgb(2, 81, 165);
+    }
+
+    #view-hud .grippie[data-position="left"],
+    #view-hud .grippie[data-position="right"] {
+      cursor: ew-resize;
+    }
+    #view-hud .grippie[data-position="top"],
+    #view-hud .grippie[data-position="bottom"] {
+      cursor: ns-resize;
+    }
+    #view-hud .grippie[data-position="top-left"] {
+      cursor: nwse-resize;
+    }
+    #view-hud .grippie[data-position="top-right"] {
+      cursor: nesw-resize;
+    }
+    #view-hud .grippie[data-position="bottom-left"] {
+      cursor: nesw-resize;
+    }
+    #view-hud .grippie[data-position="bottom-right"] {
+      cursor: nwse-resize;
+    }
+
+    #view-hud .grippie[data-position="ref"] {
+      display: none;
+      cursor: default;
+    }
+    #view-hud .subhud[data-selected] .grippie[data-position="ref"] {
+      display: initial;
+    }
+    #view-hud .grippie[data-position="ref"] path {
+      fill: white;
+      stroke: rgb(88, 88, 88);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+    #view-hud .subhud[data-selected] .grippie[data-position="ref"] path {
+      fill: rgb(176, 214, 255);
+      stroke: rgb(2, 81, 165);
+    }
+    #view-hud .grippie[data-position="ref"] rect {
+      fill: transparent;
+    }
+
+    #view-hud .label {
+      pointer-events: none;
+      font-weight: 700;
+      fill: #636363;
+    }
+  </style>
+
+  <defs>
+    <g uid="subhud-template" class="subhud">
+      <rect class="grippie" data-position="center"></rect>
+
+      <line class="grippie" data-position="left"></line>
+      <line class="grippie" data-position="right"></line>
+      <line class="grippie" data-position="top"></line>
+      <line class="grippie" data-position="bottom"></line>
+
+      <g class="grippie" data-position="top-left">
+        <rect width="30" height="30"></rect>
+        <path d="M 15 15 h 15 v -5 h -20 v 20 h 5 z"></path>
+      </g>
+
+      <g class="grippie" data-position="top-right">
+        <rect width="30" height="30"></rect>
+        <path d="M 0 15 h 15 v 15 h 5 v -20 h -20 z"></path>
+      </g>
+
+      <g class="grippie" data-position="bottom-left">
+        <rect width="30" height="30"></rect>
+        <path d="M 15 15 h 15 v 5 h -20 v -20 h 5 z"></path>
+      </g>
+
+      <g class="grippie" data-position="bottom-right">
+        <rect width="30" height="30"></rect>
+        <path d="M 15 15 v -15 h 5 v 20 h -20 v -5 z"></path>
+      </g>
+
+      <g class="grippie" data-position="ref">
+        <rect width="24" height="24"></rect>
+        <path d="M 24 10 L 24 14 L 14 14 L 14 24 L 10 24 L 10 14 L 0 14 L 0 10 L 10 10 L 10 0 L 14 0 L 14 10 Z"></path>
+      </g>
+
+      <text class="label">Default view</text>
+    </g>
+  </defs>
+
+  <g uid="subhuds"></g>
+</g><g id="rubber-band-hud" enabled="">
+  <style>
+    #rubber-band-hud [uid="rect"] {
+      fill: var(--rubber-band-background-color);
+      stroke: var(--rubber-band-border-color);
+      stroke-width: 1;
+      pointer-events: none;
+      shape-rendering: crispEdges;
+      vector-effect: non-scaling-stroke;
+    }
+    #rubber-band-hud [uid="rect"][hidden] {
+      display: none;
+    }
+
+    #rubber-band-hud [uid="polygon"] {
+      fill: var(--rubber-band-background-color);
+      stroke: var(--rubber-band-border-color);
+      stroke-width: 1;
+      pointer-events: none;
+      shape-rendering: crispEdges;
+      vector-effect: non-scaling-stroke;
+    }
+    #rubber-band-hud [uid="polygon"][hidden] {
+      display: none;
+    }
+  </style>
+
+  <rect uid="rect" x="0" y="0" width="0" height="0" hidden=""></rect>
+  <polyline uid="polygon" hidden=""></polyline>
+</g><g id="transform-hud" enabled="">
+  <style>
+    #transform-hud [uid="scale-grippies"] &gt; .grippie {
+      fill: rgb(46, 102, 249);
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+
+    #transform-hud [uid="rotate-grippies"] &gt; .grippie {
+      fill: red;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+
+    #transform-hud [uid="skew-grippies"] &gt; .grippie {
+      fill: orange;
+      stroke: white;
+      stroke-width: 2;
+      vector-effect: non-scaling-stroke;
+      filter: url(#grippie-shadow);
+    }
+  </style>
+
+  <g uid="grippies" style="display: block;">
+    <g uid="scale-grippies" style="visibility: visible;">
+      <rect class="grippie" data-position="top" height="0.228029" width="0.228029" y="-0.114014" x="11.886"></rect>
+      <rect class="grippie" data-position="left" height="0.228029" width="0.228029" y="11.886" x="-0.114014"></rect>
+      <rect class="grippie" data-position="bottom" height="0.228029" width="0.228029" y="23.886" x="11.886"></rect>
+      <rect class="grippie" data-position="right" height="0.228029" width="0.228029" y="11.886" x="23.886"></rect>
+      <rect class="grippie" data-position="top-left" height="0.228029" width="0.228029" y="-0.114014" x="-0.114014"></rect>
+      <rect class="grippie" data-position="top-right" height="0.228029" width="0.228029" y="-0.114014" x="23.886"></rect>
+      <rect class="grippie" data-position="bottom-left" height="0.228029" width="0.228029" y="23.886" x="-0.114014"></rect>
+      <rect class="grippie" data-position="bottom-right" height="0.228029" width="0.228029" y="23.886" x="23.886"></rect>
+    </g>
+
+    <g uid="rotate-grippies" style="visibility: hidden;">
+      <rect class="grippie" rx="999" data-position="top-left" height="0.228029" width="0.228029" y="-0.114014" x="-0.114014"></rect>
+      <rect class="grippie" rx="999" data-position="top-right" height="0.228029" width="0.228029" y="-0.114014" x="23.886"></rect>
+      <rect class="grippie" rx="999" data-position="bottom-left" height="0.228029" width="0.228029" y="23.886" x="-0.114014"></rect>
+      <rect class="grippie" rx="999" data-position="bottom-right" height="0.228029" width="0.228029" y="23.886" x="23.886"></rect>
+    </g>
+
+    <g uid="skew-grippies" style="visibility: hidden;">
+      <rect class="grippie" data-position="top" height="0.228029" width="0.228029" y="-0.114014" x="11.886"></rect>
+      <rect class="grippie" data-position="left" height="0.228029" width="0.228029" y="11.886" x="-0.114014"></rect>
+      <rect class="grippie" data-position="bottom" height="0.228029" width="0.228029" y="23.886" x="11.886"></rect>
+      <rect class="grippie" data-position="right" height="0.228029" width="0.228029" y="11.886" x="23.886"></rect>
+    </g>
+
+    <svg uid="origin-grippie" viewBox="0 0 100 100" visibility="hidden" width="0.19002375296912113" height="0.19002375296912113" x="11.90498812351544" y="11.90498812351544" style="visibility: hidden;">
+      <rect x="41" width="17" height="100" fill="inherit"></rect>
+      <rect x="41" width="17" height="100" fill="inherit" transform="matrix(0, 1, -1, 0, 100, 0.5)"></rect>
+      <rect x="0" y="0" width="100" height="100" style="opacity: 0;"></rect>
+    </svg>
+  </g>
+</g></g></g></svg>
