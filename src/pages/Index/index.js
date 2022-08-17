@@ -52,7 +52,7 @@ class Index extends Component {
     this.openComp2016 = this.props.history.location.hash === '#2016_comp'
     this.props.history.replace('/about')
   }
-  componentWillMount() {
+  componentDidMount() {
     setImmediate(() => {
       if (this.openComp2016) {
         document.getElementById('2016_comp').scrollIntoView({ smooth: true, block: 'start' })
@@ -216,6 +216,7 @@ class Index extends Component {
         <Fab
           color="primary"
           aria-label="add"
+          size="small"
           style={{
             position: 'fixed',
             right: '10px', bottom: '10px',
