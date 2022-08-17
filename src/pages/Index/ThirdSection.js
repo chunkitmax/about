@@ -569,6 +569,7 @@ class ThirdSection extends Component {
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Robot Operating System(ROS)" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="PID Controller" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Embedded System Programming" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="AIML" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="ARM Cortex-M3 Core" />
             </VerticalTimelineElement>
             <VerticalTimelineElement
@@ -586,7 +587,7 @@ class ThirdSection extends Component {
             >
               {/* <Typography color="primary" variant="h6">Joined</Typography> */}
               <Typography color="primary" variant="h5" className={classes.organization}>SoarStack Tech Solutions Ltd.</Typography>
-              <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Freelance Software Engineer</Typography>
+              <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Software Engineer</Typography>
               <Typography color="primary" variant="subtitle2" align="left">
                 <ul>
                   <li>Engineered modern commercial platforms for companies with Node.js, React, MySQL and
