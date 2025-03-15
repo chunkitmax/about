@@ -101,7 +101,7 @@ class SecondSection extends Component {
                   xs
                   style={{marginTop: 10}}
                 >
-                  <Button variant="contained" size="large" color="primary" className={classes.bringToTop} href={`${process.env.PUBLIC_URL}/res/doc/LauChunKit_CV_20220817.pdf`} download target="_blank">
+                  <Button variant="contained" size="large" color="primary" className={classes.bringToTop} href={`${process.env.PUBLIC_URL}/res/doc/LauChunKit_resume_20250311.pdf`} download target="_blank">
                     <SaveAlt style={{marginRight: 10}}/>
                      Download CV
                   </Button>
