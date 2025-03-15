@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Typography, Grid, withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types'
 import Particles from 'react-particles-js';
+import TextLoop from 'react-text-loop';
 
 
 const CoverStyles = {
@@ -44,32 +45,52 @@ class Cover extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      appearing: true,
-      info: {}
+      info: {},
+      titleList: ['Embedded Software Engineer', 'Robotics Engineer', 'Web Developer'],
+      titleUpdateMs: 1000,
+      infoStarted: false,
+      infoEnded: false,
     }
     this.info = {
       name: 'Peter Lau',
-      title: 'Computer Engineer',
-      area: 'Robotics • Software Development'
+      title: 'Embedded Software Engineer',
+      // area: 'Embedded • Robotics • Web'
     }
+    this.effectTimer = null
   }
   componentDidUpdate(prevProps, prevState) {
     const prevIsVisible = (prevProps.isVisible === undefined)? true : prevProps.isVisible
     const curIsVisible = (this.props.isVisible === undefined)? true : this.props.isVisible
-    if ((!prevIsVisible && curIsVisible) || this.state.appearing) {
-      this.setState({ appearing: false, info: {} })
-      if (this.effectTimer)
-        clearInterval(this.effectTimer)
-      this.effectTimer = setInterval(this.typingEffect.bind(this), 40)
-    } else if (prevIsVisible && !curIsVisible) {
-      this.setState({ info: {} })
-      if (this.effectTimer)
-        clearInterval(this.effectTimer)
+    if (!prevIsVisible && curIsVisible) {
+      if ((!this.state.infoStarted || !this.state.infoEnded) && this.effectTimer === null) {
+        this.setState({ infoStarted: true })
+        this.effectTimer = setInterval(this.typingEffect.bind(this), 40)
+      }
     }
+    // if (((!prevIsVisible && curIsVisible) || this.state.appearing) && !this.state.infoStarted) {
+    //   this.setState({ infoStarted: true })
+    //   if (this.effectTimer)
+    //     clearInterval(this.effectTimer)
+    //   this.effectTimer = setInterval(this.typingEffect.bind(this), 40)
+    //   // if (this.textLoopRef && this.textLoopRef.tick) {
+    //   //   this.textLoopRef.tick();
+    //   // }
+    //   // if (this.state.title_update_ms > 0) {
+    //     // this.setState({ titleUpdateMs: 0 })
+    //   // }
+    // } else if (prevIsVisible && !curIsVisible) {
+    //   this.setState({ info: {}, infoStarted: false, infoEnded: false })
+    //   if (this.effectTimer) {
+    //     clearInterval(this.effectTimer)
+    //     this.effectTimer = null
+    //   }
+    // }
   }
   componentWillUnmount() {
-    if (this.effectTimer)
+    if (this.effectTimer) {
       clearInterval(this.effectTimer)
+      this.effectTimer = null
+    }
   }
   typingEffect() {
     if (this.state.info.name !== this.info.name) {
@@ -80,13 +101,16 @@ class Cover extends Component {
       let title = this.state.info.title? this.state.info.title : ''
       title += this.info.title[title.length]
       this.setState({ info: { ...this.state.info,  title } })
-    } else if (this.state.info.area !== this.info.area) {
-      let area = this.state.info.area? this.state.info.area : ''
-      area += this.info.area[area.length]
-      this.setState({ info: { ...this.state.info,  area } })
+    // } else if (this.state.info.area !== this.info.area) {
+    //   let area = this.state.info.area? this.state.info.area : ''
+    //   area += this.info.area[area.length]
+    //   this.setState({ info: { ...this.state.info,  area } })
     } else {
-      if (this.effectTimer)
+      if (this.effectTimer) {
         clearInterval(this.effectTimer)
+        this.effectTimer = null
+      }
+      this.setState({ infoEnded: true })
     }
   }
   render() {
@@ -127,7 +151,33 @@ class Cover extends Component {
               {(this.state.info.name? this.state.info.name : '')}
               <span style={{textShadow: 'none'}}>{((this.state.info.name !== this.info.name && this.state.info.name && this.state.info.name.length)? '▋' : '')}</span>
             </Typography>
-            <Typography
+            {!this.state.infoEnded ? <Typography
+              variant="h6"
+              color='textPrimary'
+              align='center'
+              className={classes.fade}
+              gutterBottom
+              style={{...opacityStyle}}
+            >
+                <>
+                  {(this.state.info.title? this.state.info.title : '')}
+                  <span style={{textShadow: 'none'}}>{((this.state.info.title !== this.info.title && this.state.info.title && this.state.info.title.length)? '▋' : '')}</span>
+                </>
+            </Typography> : null}
+            {this.state.infoEnded?
+              <Typography
+                variant="h6"
+                color='textPrimary'
+                align='center'
+                className={classes.fade}
+                gutterBottom
+                style={{...opacityStyle}}
+              >
+                <TextLoop interval={this.state.titleUpdateMs}>
+                  {this.state.titleList.map(v => (<div style={{width: 500, textAlign: 'center'}}>{v}</div>))}
+                </TextLoop>
+              </Typography> : null}
+            {/* <Typography
               variant="h5"
               color='textPrimary'
               align='center'
@@ -147,7 +197,7 @@ class Cover extends Component {
             >
               {(this.state.info.area? this.state.info.area : '')}
               <span style={{textShadow: 'none'}}>{((this.state.info.area !== this.info.area && this.state.info.area && this.state.info.area.length)? '▋' : '')}</span>
-            </Typography>
+            </Typography> */}
             {/* <Hidden smDown>
               <MiniTerminal width={500} height={300} show={this.state.info.area === this.info.area} maxNumOfLine={5} maxNumOfChar={20}/>
             </Hidden> */}
