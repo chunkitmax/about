@@ -185,12 +185,14 @@ class FirstSection extends Component {
                   color="textPrimary"
                   align="left"
                 >
-                  My coding journey started {(new Date()).getFullYear() - 2010} years ago
-                  (when I was in Secondary 3)<br /><br />
-                  I was obessed with PC games and had never thought of programming
+                  My coding journey began {(new Date()).getFullYear() - 2010} years ago when I was in 9th grade<br /><br />
+                  I was obsessed with PC games and had never considered programming—until the moment I became invincible in a game using Cheat Engine. That experience sparked my curiosity, and the thrill of breaking seemingly unbreakable systems became an obsession.<br /><br />
+                  Driven by this fascination, I quickly dived into programming, building my own tools to hack games and even explore the Windows system kernel.<br /><br />
+                  Looking back, it was this relentless curiosity and hands-on exploration that ultimately shaped me into the software engineer I am today.
+                  {/* I was obessed with PC games and had never thought of programming
                   until my first time being invincible in a game using Cheat Engine. <br /><br />
                   The feeling of hacking something seems unbreakable is always fascinating me.
-                  Therefore, I soon started programming and building tools for myself to hack games and (Windows) system kernel.
+                  Therefore, I soon started programming and building tools for myself to hack games and (Windows) system kernel. */}
                 </Typography>
               </Parallax>
             </Grid>

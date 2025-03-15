@@ -72,7 +72,7 @@ const App = () => {
   }, [])
 
   return (
-    <MuiThemeProvider theme={theme} id="main">
+    <MuiThemeProvider theme={theme}>
       {/* <Fab style={{width: 70, height: 70, background: 'transparent', boxShadow: 'none', zIndex: 1001, right: 0, position: 'fixed'}}><Menu color='secondary'/></Fab> */}
       <Router>
         <div className="App" style={{maxWidth: 1920, margin: 'auto auto'}}>

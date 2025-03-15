@@ -131,9 +131,12 @@ class SecondSection extends Component {
                   x={['14%', '0%']}
                   disabled={!isWidthUp('sm', width)}
                 >
-                  <Typography variant={isWidthUp('md', width)? "h4" : "h5"} color="primary" align="left">
+                  {/* <Typography variant={isWidthUp('md', width)? "h4" : "h5"} color="primary" align="left">
                     I am an ISTJ {new Date(new Date() - new Date('1995-11-25')).getFullYear() - 1970}-year-old "boy", <br />
                     robotics enthusiast...
+                  </Typography> */}
+                  <Typography variant={isWidthUp('md', width)? "h4" : "h5"} color="primary" align="left">
+                    I am a robotics enthusiast...
                   </Typography>
                 </Parallax>
               </Grid>

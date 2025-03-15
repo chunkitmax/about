@@ -132,7 +132,7 @@ class ThirdSection extends Component {
                   color="#2fb2d0"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Web"
-                  content={`Both front-end and back-end web development but prefer dealing with data on back-end.\n\nUsually use ReactJs for front-end and Node.js for back-end.`}
+                  content={`Proficient in both front-end and back-end web development, with a strong preference for back-end data management.\n\nSkilled in React.js for front-end development and Node.js for back-end solutions.`}
                   skills={[
                     { name: 'HTML & CSS', level: 0.75, color: '#e34c26' },
                     { name: 'JavaScript (ES8)', level: 0.9, color: '#f1e05a' },
@@ -151,10 +151,11 @@ class ThirdSection extends Component {
                   color="rgb(185, 151, 30)"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Embedded System / Robotics"
-                  content={`Solid experience in building embedded software running on ARM Cortex-M0 and Cortex-M3 cores.\n\nHands-on experience in tuning PID controller for inverted pendulum system, implementing Fuzzy Logic PD Controller and applying SLAM for simple path planning on ROS`}
+                  content={`Proven experience developing embedded software for ARM Cortex-M0 and Cortex-M3 platforms.\n\nPractical expertise in PID and Fuzzy Logic PD controller tuning for inverted pendulum systems.\n\nParticipated in the implementation of SLAM for basic path planning in a ROS-based application.`}
                   skills={[
                     { name: 'C/C++', level: 0.8, color: '#f34b7d' },
-                    { name: 'Robotics Operating System (ROS)', level: 0.6, color: '#ddd' }
+                    { name: 'Robotics Operating System (ROS)', level: 0.7, color: '#ddd' },
+                    // { name: 'Rust', level: 0.6, color: '#f05033', badge: 'new' },
                   ]}
                 />
               </TrackVisibility>
@@ -166,12 +167,12 @@ class ThirdSection extends Component {
                   color="rgb(22, 168, 126)"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Machine Learning"
-                  content="Keep track of state-of-the-art techniques and sometimes test my own ideas to solve problems."
+                  content="Continuously monitor state-of-the-art machine learning techniques."
                   skills={[
-                    { name: 'Python', level: 0.7, color: '#3572A5' },
+                    { name: 'Python', level: 0.83, color: '#3572A5' },
                     { name: 'Keras (Backend: TF)', level: 0.6, color: '#d00000' },
-                    { name: 'Tensorflow', level: 0.53, color: '#ff8f00' },
-                    { name: 'PyTorch', level: 0.44, color: '#e93f27' },
+                    { name: 'Tensorflow', level: 0.57, color: '#ff8f00' },
+                    { name: 'PyTorch', level: 0.41, color: '#e93f27' },
                   ]}
                 />
               </TrackVisibility>
@@ -185,7 +186,7 @@ class ThirdSection extends Component {
                   title="Android"
                   content="Android application integrates with Firebase and RESTful APIs from other servers."
                   skills={[
-                    { name: 'Java', level: 0.7, color: '#b07219' },
+                    { name: 'Java', level: 0.65, color: '#b07219' },
                     // { name: 'Kotlin', level: 0.3, color: '#F18E33', badge: 'new' }
                   ]}
                 />
@@ -198,9 +199,9 @@ class ThirdSection extends Component {
                   color="#764848"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Other"
-                  content="Other programming languages"
+                  content="Gained practical experience in trading system architecture and implementation through a personal ROS project, developing the core system as a Rust-based ROS package."
                   skills={[
-                    { name: 'Rust', level: 0.6, color: '#f05033', badge: 'new' },
+                    { name: 'Rust', level: 0.64, color: '#f05033', badge: 'new' },
                   ]}
                 />
               </TrackVisibility>
@@ -212,11 +213,11 @@ class ThirdSection extends Component {
                   color="#ff6d04"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Software Tool"
-                  content="Other software development tools"
+                  content="Other software development tools."
                   skills={[
-                    { name: 'Git', level: 0.73, color: '#f05033' },
-                    { name: 'Linux', level: 0.7, color: '#f7be0e' },
-                    { name: 'Docker', level: 0.73, color: '#3aa2f1' }
+                    { name: 'Git', level: 0.8, color: '#f05033' },
+                    { name: 'Linux', level: 0.8, color: '#f7be0e' },
+                    { name: 'Docker', level: 0.8, color: '#3aa2f1' }
                   ]}
                 />
               </TrackVisibility>
@@ -228,11 +229,12 @@ class ThirdSection extends Component {
                   color="#ec5453"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Database"
-                  content="Work experience on SQL and NoSQL"
+                  content="Work experience with SQL and NoSQL."
                   skills={[
-                    { name: 'MySQL', level: 0.73, color: '#f8981d' },
-                    { name: 'MongoDB', level: 0.64, color: '#13aa52' },
-                    { name: 'Oracle Database', level: 0.63, color: '#aa13a8' },
+                    { name: 'MySQL', level: 0.75, color: '#f8981d' },
+                    { name: 'PostgreSQL', level: 0.75, color: '#f8981d' },
+                    { name: 'MongoDB', level: 0.6, color: '#13aa52' },
+                    { name: 'Oracle Database', level: 0.6, color: '#aa13a8' },
                   ]}
                 />
               </TrackVisibility>
@@ -437,14 +439,20 @@ class ThirdSection extends Component {
               <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Co-founder, Android Developer</Typography>
               <Typography color="primary" variant="subtitle2" align="left">
                 <ul>
-                  <li>USThing is a team made up of passionate and talented students who work towards the continual betterment of the app and the HKUST student community. Mainly provide iOS and Android applications to let HKUST students have easy access to University’s basic services</li>
+                  <li>A team is made up of passionate and talented students who work towards the continual
+                  betterment of the app and the HKUST student community</li>
+                  <li>Mainly provide iOS and Android application for HKUST students</li>
                   <li>Major Android developer in early stage</li>
+                  <li>Built and integrated CNN to solve CAPTCHA for facility booking system with approximately 98.1% accuracy</li>
                 </ul>
               </Typography>
-              <Divider className={classes.divider} variant="fullWidth"/>
+              <Divider className={classes.divider} variant="fullWidth" style={{'border': '1px solud blue'}}/>
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Python" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Java" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Android Development" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Firebase" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Keras" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="TensorFlow" />
             </VerticalTimelineElement>
             <VerticalTimelineElement
               iconClassName={classes.timelineIconSpan}
@@ -546,20 +554,36 @@ class ThirdSection extends Component {
             >
               {/* <Typography color="primary" variant="h6">Joined</Typography> */}
               <Typography color="primary" variant="h5" className={classes.organization}>BHL Technology Ltd.</Typography>
-              <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Python Programmer</Typography>
+              <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Embedded Software Engineer</Typography>
               <Typography color="primary" variant="subtitle2" align="left">
                 <ul>
-                  <li>Designed and built a interactive system to control robots.</li>
-                  <li>Built high-level modules with <strong>multiple programming languages</strong> (Python, Node.js) on <strong>Robot Operating System(ROS)</strong> as well as
+                  <li>Designed and implemented a control system for a robot utilizing Robot Operating System
+                  (ROS) on Ubuntu</li>
+                  <li>Designed and implemented a control system for a robot utilizing Robot Operating System (ROS) on Ubuntu</li>
+                  <li>Developed embedded system for Cortex-M3 core devices to control via CAN and drive motors/servos with PID control</li>
+                  <li>Applied deep learning model for face detection</li>
+                  {/* <li>Built high-level modules with <strong>multiple programming languages</strong> (Python, Node.js) on <strong>Robot Operating System(ROS)</strong> as well as
                   low-level modules with C running on MCU based on Cortex-M3 core to control motors/servos</li>
                   <li>Applied ROS SLAM module and Deep Learning models in Computer Vision</li>
                   <li>Built user interface with Http and WebSocket server for real time monitoring</li>
                   <li>Designed and implemented protocol on communication via <strong>CAN bus</strong></li>
-                  <li>Conducted hardware testing</li>
+                  <li>Conducted hardware testing</li> */}
                 </ul>
               </Typography>
               <Divider className={classes.divider} variant="fullWidth"/>
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Node.js" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="ROS" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Python" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="C" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Node.js" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="PID Control" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="REST API" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="CAN" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Karas" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Linux" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Tensorflow" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Keras" />
+                <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="OpenCV" />
+              {/* <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Node.js" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Express.js" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Python" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Tensorflow" />
@@ -570,7 +594,7 @@ class ThirdSection extends Component {
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="PID Controller" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Embedded System Programming" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="AIML" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="ARM Cortex-M3 Core" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="ARM Cortex-M3 Core" /> */}
             </VerticalTimelineElement>
             <VerticalTimelineElement
               iconClassName={classes.timelineIconSpan}
@@ -590,27 +614,73 @@ class ThirdSection extends Component {
               <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Software Engineer</Typography>
               <Typography color="primary" variant="subtitle2" align="left">
                 <ul>
-                  <li>Engineered modern commercial platforms for companies with Node.js, React, MySQL and
-AWS cloud services</li>
-                  <li>Efficiently deployed and integrated software and wrote integration / deployment bash
-scripts, dockerfile and docker compose file</li>
-                  <li>Designed, built and maintained modules for company internal purchase system with Java,
-Apache MyFaces and Oracle Database</li>
+                  <li>Engineered modern commercial platforms for clients and integrated them with AWS cloud services</li>
+                  <li>Designed, built, and maintained internal purchase system modules for companies using Java,
+                  Apache MyFaces framework, and Oracle Databases</li>
+                  <li>Automated integrations and deployments with Docker and Bash scripts</li>
+                  <li>Provided technical consultations to clients for troubleshooting issues and recommending
+                  solutions</li>
                 </ul>
               </Typography>
-              <Divider className={classes.divider} variant="fullWidth"/>
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="RDS" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="EC2" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Java 6" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Apache MyFaces" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Docker" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="bash scripting" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Node.js" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="React" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Python" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="MySQL" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="MongoDB" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="C/C++" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Java" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Microsoft SQL Server" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Oracle Database" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Oracle WebLogic" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="MyFaces" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="AWS Cloud Services" />
-              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Docker" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="MySQL" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Redshift" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="REST API" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Linux" />
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              iconClassName={classes.timelineIconSpan}
+              date="Nov 2022 ~ Apr 2024"
+              iconStyle={{ background: '#1abf5c'}}
+              icon={
+                <img
+                  src={`${process.env.PUBLIC_URL}/res/img/case.svg`}
+                  className={classes.timelineIcon}
+                  alt="work"
+                />
+              }
+              contentClassName={classes.timelineContent}
+            >
+              {/* <Typography color="primary" variant="h6">Joined</Typography> */}
+              <Typography color="primary" variant="h5" className={classes.organization}>Analog Devices Inc.</Typography>
+              <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Firmware Engineer</Typography>
+              <Typography color="primary" variant="subtitle2" align="left">
+                <ul>
+                  <li>Designed and built a library that enables internal and customer tools to effectively control
+                  leading USB extender products and streamlines development processes. It significantly
+                  reduces firmware upload time by 50%</li>
+                  <li>Maintained and enhanced a manufacturing tool written in Scala by updating its encryption
+                  module to safeguard product integrity through robust encryption at the factory
+                  programming stage</li>
+                  <li>Contributed to the implementation of a communication protocol for USB extenders to
+                  facilitate reliable data transmission up to 120 meters</li>
+                  <li>Tested and debugged a communication module on Embedded Linux</li>
+                  <li>Researched and built a proof-of-concept module for device discovery on the network layer
+                  for USB extender products</li>
+                </ul>
+              </Typography>
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="C" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Python" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Scala" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="PostgreSQL" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="UART" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="I2C" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Atmel" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="DP Link Training" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Link Layer" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Network Layer" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Multicast" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Linux" />
             </VerticalTimelineElement>
           </VerticalTimeline>
         </Grid>
