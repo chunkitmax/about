@@ -103,7 +103,7 @@ class ThirdSection extends Component {
               </Grid>
             </ParallaxBanner>
         </ParallaxProvider>
-        <VideoModal open={this.state.videoOpen_2016Comp} onClose={() => this.setState({ videoOpen_2016Comp: false })} url={'https://drive.google.com/file/d/1bqXMd-SDYyegPTSWv8SDGezDTa0wIQYj/preview'} />
+        <VideoModal open={this.state.videoOpen_2016Comp} onClose={() => this.setState({ videoOpen_2016Comp: false })} url={`${process.env.PUBLIC_URL}/res/vid/VID-20160718.mp4`} />
         <Grid
           container
           direction="row"
