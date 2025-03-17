@@ -602,8 +602,9 @@ class ThirdSection extends Component {
               iconStyle={{ background: '#1abf5c'}}
               icon={
                 <img
-                  src={`${process.env.PUBLIC_URL}/res/img/case.svg`}
+                  src={`${process.env.PUBLIC_URL}/res/img/soarstack.png`}
                   className={classes.timelineIcon}
+                  style={{ transform: 'scale(1.27)' }}
                   alt="work"
                 />
               }
@@ -622,6 +623,7 @@ class ThirdSection extends Component {
                   solutions</li>
                 </ul>
               </Typography>
+              <Divider className={classes.divider} variant="fullWidth"/>
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="RDS" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="EC2" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Java 6" />
@@ -644,8 +646,9 @@ class ThirdSection extends Component {
               iconStyle={{ background: '#1abf5c'}}
               icon={
                 <img
-                  src={`${process.env.PUBLIC_URL}/res/img/case.svg`}
+                  src={`${process.env.PUBLIC_URL}/res/img/adi.svg`}
                   className={classes.timelineIcon}
+                  style={{ transform: 'scale(1.270038401)' }}
                   alt="work"
                 />
               }
@@ -669,6 +672,7 @@ class ThirdSection extends Component {
                   for USB extender products</li>
                 </ul>
               </Typography>
+              <Divider className={classes.divider} variant="fullWidth"/>
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="C" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Python" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Scala" />

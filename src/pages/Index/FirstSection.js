@@ -55,7 +55,7 @@ class FirstSection extends Component {
                     textShadow: '0px 0px 30px #000'
                   }}
                 >
-                  About
+                  About Me
                 </Typography>
               </Grid>
             </ParallaxBanner>
