@@ -557,8 +557,6 @@ class ThirdSection extends Component {
               <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Embedded Software Engineer</Typography>
               <Typography color="primary" variant="subtitle2" align="left">
                 <ul>
-                  <li>Designed and implemented a control system for a robot utilizing Robot Operating System
-                  (ROS) on Ubuntu</li>
                   <li>Designed and implemented a control system for a robot utilizing Robot Operating System (ROS) on Ubuntu</li>
                   <li>Developed embedded system for Cortex-M3 core devices to control via CAN and drive motors/servos with PID control</li>
                   <li>Applied deep learning model for face detection</li>
