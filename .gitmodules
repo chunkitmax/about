@@ -1,0 +1,3 @@
+[submodule "submodules/react-vertical-timeline"]
+	path = submodules/react-vertical-timeline
+	url = https://github.com/chunkitmax/react-vertical-timeline.git
