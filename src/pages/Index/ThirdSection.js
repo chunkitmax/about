@@ -201,9 +201,10 @@ class ThirdSection extends Component {
                   color="#764848"
                   boardWidth={isWidthUp('md', width)? 350 : '100%'}
                   title="Other"
-                  content="Gained practical experience in trading system architecture and implementation through a personal ROS project, developing the core system as a Rust-based ROS package."
+                  content="Gained practical experience in trading system architecture and implementation through a personal ROS project, developing the core system as a Rust-based ROS package.\n\nProfessional experience building TEE signing backends and cryptographic services in Rust and Go."
                   skills={[
-                    { name: 'Rust', level: 0.64, color: '#f05033', badge: 'new' },
+                    { name: 'Rust', level: 0.78, color: '#f05033' },
+                    { name: 'Go', level: 0.63, color: '#00ADD8', badge: 'new' },
                   ]}
                 />
               </TrackVisibility>
@@ -675,6 +676,53 @@ class ThirdSection extends Component {
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Embedded Linux" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Jira" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Atlassian Confluence" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Git" />
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              iconClassName={classes.timelineIconSpan}
+              date="Jun 2025 ~ Present"
+              iconStyle={{ background: '#1abf5c'}}
+              icon={
+                <img
+                  src={`${process.env.PUBLIC_URL}/res/img/case.svg`}
+                  className={classes.timelineIcon}
+                  alt="work"
+                />
+              }
+              contentClassName={classes.timelineContent}
+            >
+              <Typography color="primary" variant="h5" className={classes.organization}>ECAD Labs Inc.</Typography>
+              <Typography color="primary" variant="subtitle2" className={classes.subtitle}>Software Engineer</Typography>
+              <Typography color="primary" variant="subtitle2" align="left">
+                <ul>
+                  <li>Built and integrated TEE signing backends (GCP Confidential Space, AWS Nitro Enclaves) in Go and Rust</li>
+                  <li>Developed Intel SGX enclave in C++ for secure key management and cryptographic signing, with AWS KMS integration for portable key backup across platforms</li>
+                  <li>Designed and extended RPC interfaces to support multiple cryptographic signing schemes (ECDSA, BLS)</li>
+                  <li>Implemented BLS proof-of-possession across the protocol library and core signing service</li>
+                  <li>Extended policy engine with chain filtering, request validation, and ERC-2335 keystore support</li>
+                  <li>Maintained Tezos binary protocol library with support for new cryptographic primitives and protocol upgrades</li>
+                </ul>
+              </Typography>
+              <Divider className={classes.divider} variant="fullWidth"/>
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Rust" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Go" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="C++" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Intel SGX" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="JSON-RPC" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="REST" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="CBOR" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="ECDSA" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="BLS12-381" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Prometheus" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="AWS KMS" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="AWS Nitro Enclaves" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="GCP KMS" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="GCP Confidential Space" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Google Firestore" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Vsock" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Docker" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Tezos" />
+              <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Ethereum" />
               <Chip className={classes.chip} variant="outlined" color="secondary" size="small" label="Git" />
             </VerticalTimelineElement>
           </VerticalTimeline>

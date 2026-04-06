@@ -210,7 +210,7 @@ class Index extends Component {
           item
           container
         >
-          <Typography variant="body2" style={{color: '#444444'}}>Updated on 20-May-2025</Typography>
+          <Typography variant="body2" style={{color: '#444444'}}>Updated on 06-Apr-2026</Typography>
         </Grid>
 
         <Fab
